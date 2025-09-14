@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<div class="container">
+  <h2>Cocktail Finder</h2>
+  <form method="POST" action="/cocktails" class="mb-3">
+    <input type="text" name="drink" placeholder="Enter cocktail name" class="form-control mb-2" required>
+    <button type="submit" class="btn btn-success">Search</button>
+  </form>
+
+  <div class="row">
+    <% drinks.forEach(d => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="<%= d.strDrinkThumb %>" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= d.strDrink %></h5>
+            <p class="card-text">Category: <%= d.strCategory %></p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

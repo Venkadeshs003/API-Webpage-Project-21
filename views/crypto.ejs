@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<div class="container">
+  <h2>Top 10 Cryptocurrencies</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Coin</th>
+        <th>Price (USD)</th>
+        <th>Market Cap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% coins.forEach((coin, i) => { %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><img src="<%= coin.image %>" width="20"> <%= coin.name %></td>
+          <td>$<%= coin.current_price %></td>
+          <td>$<%= coin.market_cap.toLocaleString() %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("partials/footer") %>

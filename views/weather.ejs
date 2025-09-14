@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<div class="container">
+  <h2>Weather App</h2>
+  <form method="POST" action="/weather" class="mb-3">
+    <input type="text" name="city" placeholder="Enter city" class="form-control mb-2" required>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+  </form>
+
+  <% if (weather) { %>
+    <div class="card p-3">
+      <h4><%= weather.city %></h4>
+      <p><%= weather.temp %> °C - <%= weather.desc %></p>
+      <img src="http://openweathermap.org/img/wn/<%= weather.icon %>@2x.png" alt="icon">
+    </div>
+  <% } else if (error) { %>
+    <p class="text-danger"><%= error %></p>
+  <% } %>
+</div>
+
+<%- include("partials/footer") %>
+  
